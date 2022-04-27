@@ -126,7 +126,3 @@ footer {
 footer > span {
     line-height: 30px;
 }
-
-.remove-event {
-    pointer-events: none;
-}

@@ -54,15 +54,17 @@ function startGame() {
         if (difficulty == "easy") {
             let domElement = genGridCellEasy(itemNumb);
             domElement.addEventListener("click", function cellClick() {
-                const clickedNumb = parseInt(this.querySelector("span").textContent);
-                
+                const clickedNumb = parseInt(this.querySelector("span").textContent);    
                 if ( bombArray.includes(clickedNumb) ) {
                     this.classList.add("active-bomb");
-
+                    const gridItems = document.getElementsByClassName("grid-item-easy");
+                    for (let i = 0; i < gridItems.length; i++) {
+                        const thisItem = gridItems[i];
+                        thisItem.style.pointerEvents = "none";
+                    };
                     const endTitle = document.getElementById("end-title-d-none");
                     endTitle.classList.remove("d-none");
                     endTitle.innerHTML = `<h2>Hai totalizzato ${clickedNumbCounter} punti!<h2>`
-
                 } else {
                     this.classList.add("active");
                     this.style.pointerEvents = "none";
@@ -74,14 +76,16 @@ function startGame() {
             let domElement = genGridCellMedium(itemNumb)
             domElement.addEventListener("click", function cellClick() {
                 const clickedNumb = parseInt(this.querySelector("span").textContent);
-                
                 if ( bombArray.includes(clickedNumb) ) {
                     this.classList.add("active-bomb");
-
+                    const gridItems = document.getElementsByClassName("grid-item-medium");
+                    for (let i = 0; i < gridItems.length; i++) {
+                        const thisItem = gridItems[i];
+                        thisItem.style.pointerEvents = "none";
+                    };
                     const endTitle = document.getElementById("end-title-d-none");
                     endTitle.classList.remove("d-none");
                     endTitle.innerHTML = `<h2>Hai totalizzato ${clickedNumbCounter} punti!<h2>`
-
                 } else {
                     this.classList.add("active");
                     this.style.pointerEvents = "none";
@@ -92,15 +96,17 @@ function startGame() {
         } else if (difficulty == "hard") {
             let domElement = genGridCellHard(itemNumb)
             domElement.addEventListener("click", function cellClick() {
-                const clickedNumb = parseInt(this.querySelector("span").textContent);
-                
+                const clickedNumb = parseInt(this.querySelector("span").textContent);   
                 if ( bombArray.includes(clickedNumb) ) {
                     this.classList.add("active-bomb");
-
+                    const gridItems = document.getElementsByClassName("grid-item-hard");
+                    for (let i = 0; i < gridItems.length; i++) {
+                        const thisItem = gridItems[i];
+                        thisItem.style.pointerEvents = "none";
+                    };
                     const endTitle = document.getElementById("end-title-d-none");
                     endTitle.classList.remove("d-none");
                     endTitle.innerHTML = `<h2>Hai totalizzato ${clickedNumbCounter} punti!<h2>`
-
                 } else {
                     this.classList.add("active");
                     this.style.pointerEvents = "none";
